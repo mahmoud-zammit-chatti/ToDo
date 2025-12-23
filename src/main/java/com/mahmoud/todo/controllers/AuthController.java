@@ -2,10 +2,11 @@ package com.mahmoud.todo.controllers;
 
 
 import com.mahmoud.todo.models.DTOs.LoginAppUserDTO;
+import com.mahmoud.todo.models.DTOs.RefreshTokenRequest;
 import com.mahmoud.todo.models.Responses.AuthResponse;
 import com.mahmoud.todo.services.AuthService;
 import jakarta.validation.Valid;
-import org.springframework.http.MediaType;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,4 +30,14 @@ public class AuthController {
 
     }
 
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponse> refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest){
+        return ResponseEntity.ok(authService.refresh(refreshTokenRequest.getRefreshToken()));
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestBody RefreshTokenRequest refreshTokenRequest){
+        authService.logout(refreshTokenRequest);
+        return ResponseEntity.status(204).body(null);
+    }
 }
