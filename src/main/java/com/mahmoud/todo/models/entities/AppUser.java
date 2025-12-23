@@ -1,17 +1,11 @@
-package com.mahmoud.todo.models;
+package com.mahmoud.todo.models.entities;
 
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
-enum Role {
-    USER,
-    ADMIN
-}
-
+import com.mahmoud.todo.Role;
 
 @Entity
 @Data
@@ -30,3 +24,5 @@ public class AppUser {
     @Enumerated(EnumType.STRING)
     private Role role;
 }
+
+

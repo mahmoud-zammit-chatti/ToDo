@@ -1,0 +1,7 @@
+package com.mahmoud.todo.exceptions;
+
+public class RessourceNotFoundException extends RuntimeException{
+    public RessourceNotFoundException(String message){
+        super(message);
+    }
+}

@@ -1,4 +1,4 @@
-package com.mahmoud.todo.models;
+package com.mahmoud.todo.models.entities;
 
 
 import jakarta.persistence.*;
