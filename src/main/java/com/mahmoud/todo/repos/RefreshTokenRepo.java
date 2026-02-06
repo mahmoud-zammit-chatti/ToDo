@@ -1,7 +1,7 @@
 package com.mahmoud.todo.repos;
 
-import com.mahmoud.todo.models.entities.AppUser;
-import com.mahmoud.todo.models.entities.RefreshToken;
+import com.mahmoud.todo.domain.user.AppUser;
+import com.mahmoud.todo.domain.user.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

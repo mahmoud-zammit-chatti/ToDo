@@ -1,11 +1,11 @@
 package com.mahmoud.todo.controllers;
 
 
-import com.mahmoud.todo.models.DTOs.LoginAppUserDTO;
-import com.mahmoud.todo.models.DTOs.RegisterAppUserDTO;
-import com.mahmoud.todo.models.entities.AppUser;
-import com.mahmoud.todo.services.AppUserService;
+import com.mahmoud.todo.DTOs.auth.RegisterAppUserDTO;
+import com.mahmoud.todo.domain.user.AppUser;
+import com.mahmoud.todo.services.user.AppUserService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,17 +30,17 @@ public class AppUserController {
         appUserService.registerUser(registerAppUserDTO);
     }
     @GetMapping("/api/v1/admin/users")
-    public List<AppUser> getAllUsers(){
-        return appUserService.getAllUsers();
+    public ResponseEntity<List<AppUser>> getAllUsers(){
+        return ResponseEntity.ok().body( appUserService.getAllUsers());
     }
 
     @GetMapping("/api/v1/me")
-    public Map<String, Object> me(Authentication auth) {
-        return Map.of(
+    public ResponseEntity<Map<String, Object>> me(Authentication auth) {
+        return  ResponseEntity.ok().body( Map.of(
                 "username", auth.getName(),
                 "roles", auth.getAuthorities()
 
-        );
+        ));
     }
 
 

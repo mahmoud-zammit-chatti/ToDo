@@ -1,12 +1,11 @@
 package com.mahmoud.todo.controllers;
 
 
-import com.mahmoud.todo.models.DTOs.LoginAppUserDTO;
-import com.mahmoud.todo.models.DTOs.RefreshTokenRequest;
-import com.mahmoud.todo.models.Responses.AuthResponse;
-import com.mahmoud.todo.services.AuthService;
+import com.mahmoud.todo.DTOs.auth.LoginAppUserDTO;
+import com.mahmoud.todo.DTOs.auth.RefreshTokenRequest;
+import com.mahmoud.todo.DTOs.auth.AuthResponse;
+import com.mahmoud.todo.services.user.AuthService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

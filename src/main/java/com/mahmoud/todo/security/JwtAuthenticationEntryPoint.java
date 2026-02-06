@@ -1,8 +1,7 @@
 package com.mahmoud.todo.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mahmoud.todo.exceptions.ApiError;
-import jakarta.servlet.ServletException;
+import com.mahmoud.todo.api.exceptions.ApiError;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
