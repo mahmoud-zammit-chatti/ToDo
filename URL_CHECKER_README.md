@@ -117,11 +117,39 @@ curl -X POST http://localhost:8080/api/v1/check-url \
   -H "Content-Type: application/json" \
   -d '{"url": "https://www.google.com"}'
 
-# Check a suspicious URL (example)
+# Expected response:
+# {"status":"SAFE","riskScore":0,"sources":[],"redirectToGame":null}
+
+# Check a suspicious URL with heuristic triggers
 curl -X POST http://localhost:8080/api/v1/check-url \
   -H "Content-Type: application/json" \
   -d '{"url": "http://192.168.1.1/secure-bank-login"}'
+
+# Expected response (with heuristics only):
+# {"status":"SAFE","riskScore":25,"sources":[],"redirectToGame":null}
+# Note: Risk score 25 = IP address(15) + suspicious keyword(10)
+
+# Check a URL with excessive hyphens and long domain
+curl -X POST http://localhost:8080/api/v1/check-url \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://very-suspicious-phishing-website-with-many-hyphens-domain.com/login"}'
+
+# Expected response:
+# {"status":"SAFE","riskScore":40,"sources":[],"redirectToGame":null}
+# Note: Risk score 40 = long domain(10) + suspicious keyword(10) + excessive hyphens(10) + suspicious keyword again(10)
+
+# To test with real threat detection, add your API keys to application.properties
 ```
+
+### Testing Without API Keys
+
+The application works without API keys but will only use heuristic analysis:
+- IP addresses in URLs
+- Long domain names
+- Suspicious keywords
+- Excessive hyphens
+
+To test the full multi-source detection, you'll need to configure the API keys.
 
 ## 🔍 How Risk Scoring Works
 
