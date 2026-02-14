@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "*") // Enable CORS for mobile frontend
+@CrossOrigin(origins = "*") // CAUTION: Configured for development. Restrict origins in production!
 public class UrlCheckController {
 
     private final DetectionService detectionService;

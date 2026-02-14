@@ -23,14 +23,14 @@ When a malicious URL is detected, the response includes a flag to redirect users
 
 ## 🛠 Tech Stack
 
-- Java 21
+- Java 17
 - Spring Boot 3.5.7
 - Spring Security
 - Maven
 
 ## 📋 Prerequisites
 
-- Java 21 or higher
+- Java 17 or higher
 - Maven 3.6+
 - PostgreSQL (for existing TODO features, not used by URL checker)
 - API Keys:
