@@ -18,6 +18,12 @@ const MODES = {
     description: 'Balances safety and browsing flexibility',
   },
 };
+const MOCK_THREATS_BLOCKED = 24;
+const WORD_OF_DAY = {
+  word: 'Phishing',
+  description:
+    'A social engineering attack where users are tricked into revealing sensitive information through fake websites or messages.',
+};
 
 export default function App() {
   const [selectedMode, setSelectedMode] = useState('severe');
@@ -39,7 +45,7 @@ export default function App() {
 
         <View style={styles.counterCard}>
           <Text style={styles.shield}>🛡</Text>
-          <Text style={styles.counterValue}>24</Text>
+          <Text style={styles.counterValue}>{MOCK_THREATS_BLOCKED}</Text>
           <Text style={styles.counterLabel}>Threats Blocked</Text>
         </View>
 
@@ -69,11 +75,8 @@ export default function App() {
 
         <View style={styles.wordCard}>
           <Text style={styles.wordHeader}>Cybersecurity Word of the Day</Text>
-          <Text style={styles.wordTerm}>Phishing</Text>
-          <Text style={styles.wordDescription}>
-            A social engineering attack where users are tricked into revealing
-            sensitive information through fake websites or messages.
-          </Text>
+          <Text style={styles.wordTerm}>{WORD_OF_DAY.word}</Text>
+          <Text style={styles.wordDescription}>{WORD_OF_DAY.description}</Text>
         </View>
       </View>
     </SafeAreaView>
